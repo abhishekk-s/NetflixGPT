@@ -5,8 +5,9 @@ import { API_OPTIONS } from "../utils/Constants";
 
 const useMovieTrailer = (id) => {
   const dispatch = useDispatch();
+  const movieTrailer = useSelector((store) => store.movies.trailerVideo);
   useEffect(() => {
-    getMovieVidoes();
+    !movieTrailer && getMovieVidoes();
   }, []);
   const getMovieVidoes = async () => {
     const data = await fetch(

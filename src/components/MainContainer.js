@@ -4,14 +4,13 @@ import VideoBackground from "./VideoBackground";
 import { useSelector } from "react-redux";
 
 const MainContainer = () => {
-
-    const movies = useSelector(store => store.movies?.nowPlayingMovies);
-    if(movies === null) return;
-    const topMovie = movies[0];
+  const movies = useSelector((store) => store.movies?.nowPlayingMovies);
+  if (movies === null) return;
+  const topMovie = movies[0];
   return (
-    <div>
-      <VideoTitle movie={topMovie}/>
-      <VideoBackground movie={topMovie}/>
+    <div className="md:pt-0 bg-black pt-[30%]">
+      <VideoTitle movie={topMovie} />
+      <VideoBackground movie={topMovie} />
     </div>
   );
 };

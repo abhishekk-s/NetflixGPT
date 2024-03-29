@@ -1,6 +1,6 @@
 import React, { useState, useRef } from "react";
 import Header from "./Header";
-import { BACKGROUND_IMG, USER_ICON } from "../utils/Constants";
+import { BACKGROUND_IMG } from "../utils/Constants";
 import { checkValidData } from "../utils/Validate";
 import {
   createUserWithEmailAndPassword,
@@ -10,6 +10,7 @@ import {
 import { auth } from "../utils/firebase";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
+import USER_ICON from "../assets/user.png"
 
 const Login = () => {
   const [isSignIn, setIsSignIn] = useState(true);
@@ -42,7 +43,7 @@ const Login = () => {
           setErrMsg("User Registered Successfully");
           updateProfile(user, {
             displayName: name.current.value,
-            photoURL: USER_ICON,
+            photoURL: {USER_ICON},
           })
             .then(() => {
               const { uid, email, photoURL, displayName } = auth.currentUser;
@@ -56,13 +57,13 @@ const Login = () => {
               );
             })
             .catch((err) => {
-              console.log(err);
+              //console.log(err);
             });
         })
         .catch((error) => {
           const errorCode = error.code;
           const errorMessage = error.Message;
-          console.log(errorCode + "-" + errorMessage);
+          //console.log(errorCode + "-" + errorMessage);
           setErrMsg("User Already Registered");
         });
     } else {
@@ -77,7 +78,7 @@ const Login = () => {
         .catch((error) => {
           const errorCode = error.code;
           const errorMessage = error.Message;
-          console.log(errorCode + "-" + errorMessage);
+          //console.log(errorCode + "-" + errorMessage);
           setErrMsg("Incorrect Email/Password ");
         });
     }
@@ -90,13 +91,13 @@ const Login = () => {
     <div>
       <Header />
       <div className="absolute">
-        <img src={BACKGROUND_IMG} alt="logo" />
+        <img className="fixed md:h-auto h-screen object-cover" src={BACKGROUND_IMG} alt="logo" />
       </div>
       <form
         onSubmit={(e) => e.preventDefault()}
-        className=" bg-opacity-85 bg-black absolute w-3/12 p-11 my-40 mx-auto left-0 right-0 text-white rounded-lg"
+        className=" bg-opacity-85 bg-black absolute w-10/12 md:w-3/12 p-11 my-40 mx-auto left-0 right-0 text-white rounded-lg"
       >
-        <h1 className="text-3xl font-bold my-4">
+        <h1 className="text-2xl md:text-3xl font-bold my-4">
           {isSignIn ? "Sign In" : "Sign Up"}
         </h1>
         {!isSignIn && (
