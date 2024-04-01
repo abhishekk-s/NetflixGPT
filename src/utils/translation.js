@@ -12,7 +12,7 @@ const lang = {
     gptSearchBarPlaceholder: "今日は何を考えていますか?",
   },
   sp: {
-    search: "buscar",
+    search: "Buscar",
     gptSearchBarPlaceholder: "¿Qué tienes en mente hoy?",
   },
 };
