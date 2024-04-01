@@ -5,8 +5,14 @@ import { useSelector } from "react-redux";
 
 const MainContainer = () => {
   const movies = useSelector((store) => store.movies?.nowPlayingMovies);
+  const clicked = useSelector((store) => store.movies?.clicked);
+  const clickedMovie = useSelector((store) => store.movies?.clickedMovie);
   if (movies === null) return;
-  const topMovie = movies[0];
+  let topMovie = movies[0];
+  if (clicked) {
+    topMovie = clickedMovie;
+  }
+
   return (
     <div className="md:pt-0 bg-black pt-[30%]">
       <VideoTitle movie={topMovie} />

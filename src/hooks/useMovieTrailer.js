@@ -5,10 +5,10 @@ import { API_OPTIONS } from "../utils/Constants";
 
 const useMovieTrailer = (id) => {
   const dispatch = useDispatch();
-  const movieTrailer = useSelector((store) => store.movies.trailerVideo);
+  const movieUpdate = useSelector((store) => store.movies.clickedMovie);
   useEffect(() => {
-    !movieTrailer && getMovieVidoes();
-  }, []);
+    getMovieVidoes();
+  }, [movieUpdate]);
   const getMovieVidoes = async () => {
     const data = await fetch(
       "https://api.themoviedb.org/3/movie/" + id + "/videos?",
@@ -18,7 +18,12 @@ const useMovieTrailer = (id) => {
     const trailerList = json.results.filter(
       (video) => video.type === "Trailer"
     );
-    const trailer = trailerList.length !== 0 ? trailerList[1] : json.results[0];
+    let trailer =
+      trailerList.length !== 0
+        ? trailerList.length >= 2
+          ? trailerList[1]
+          : trailerList[0]
+        : json.results[0];
     dispatch(addTrailerVideo(trailer));
   };
 };
