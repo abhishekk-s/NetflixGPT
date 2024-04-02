@@ -8,7 +8,7 @@ const VideoTitle = ({ movie }) => {
     setToggle(!toggle);
   };
   return (
-    <div className="pt-[20%] md:pt-[12%] px-6 md:px-24 py-60 absolute bg-gradient-to-r from-black text-white aspect-video">
+    <div className="pt-[20%] md:pt-[12%] px-6 md:px-24 py-72 absolute bg-gradient-to-r from-black text-white aspect-video">
       <h1 className="text-2xl md:text-4xl font-bold pb-4">{original_title}</h1>
       <p className="hidden md:inline-block text-sm md:text-base text- w-3/4 md:w-1/4 py-2 h-48 overflow-scroll no-scrollbar">
         {overview}
@@ -24,7 +24,9 @@ const VideoTitle = ({ movie }) => {
           ℹ️ More Info
         </button>
         {toggle && (
-          <p className="hidden absolute font-bold text-xl text-white bg-gray-700 p-2 rounded-lg shadow-lg -mt-16 bg-opacity-70 md:block">{title}</p>
+          <p className="hidden absolute font-bold text-xl text-white bg-gray-700 p-2  whitespace-nowrap rounded-lg shadow-lg -mt-[7.8rem] mx-64 bg-opacity-70 md:block">
+            {title}
+          </p>
         )}
       </div>
     </div>
