@@ -18,13 +18,13 @@ const VideoTitle = ({ movie }) => {
           ▶️ Play
         </button>
         <button
-          className="hidden md:inline-block font-bold text-lg bg-gray-600 text-white rounded-lg bg-opacity-70 my-6 mx-4 py-2 px-3 hover:bg-opacity-65"
+          className="hidden md:inline-block font-bold text-lg bg-gray-600 text-white rounded-lg bg-opacity-70 my-6 mx-4 py-2 px-3 w-48 hover:bg-opacity-65"
           onClick={handleClick}
         >
           {toggle ? "Hide English Title" : "Show English Title"}
         </button>
         {toggle && (
-          <p className="hidden absolute font-bold text-xl text-white bg-gray-600 p-2  whitespace-nowrap rounded-lg -mt-[7.8rem] mx-72 bg-opacity-40 md:block">
+          <p className="hidden absolute font-bold text-xl text-white bg-gray-600 p-2  whitespace-nowrap rounded-lg -mt-[7.8rem] mx-[19.2rem] bg-opacity-40 md:block">
             {title}
           </p>
         )}
